@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas width="600" height="400"></canvas>
+
+    <script>
+        var pantalla = document.querySelector('canvas');
+        var pincel = pantalla.getContext('2d');
+
+        pincel.fillStyle = 'grey';
+        pincel.fillRect(0, 0, 600, 400);
+
+        var puedoDibujar = false;
+        var color = ["red", "lightgreen", "blue"];
+        var colorActual = "red";
+        let x = 50;
+
+        function dibujarCirculo(evento) {
+
+            if(puedoDibujar) {
+                var x = evento.pageX - pantalla.offsetLeft;
+                var y = evento.pageY - pantalla.offsetTop;
+                pincel.fillStyle = 'red';
+                pincel.beginPath();
+                pincel.arc(x, y, 5, 0, 2 * 3.14);
+                pincel.fill();
+            }
+
+        }
+
+        for (var i = 0; i < color.length; i++) {
+            pincel.fillStyle = color[i];
+            pincel.fillRect(50*i,0,50,50);
+            pincel.fill();
+            console.log(i);
+        }
+
+
+        pantalla.onmousemove = dibujarCirculo;
+
+
+        function cambioColor(event) {
+            var x = event.pageX - pantalla.offsetLeft;
+            var y = event.pageY - pantalla.offsetTop;
+            console.log(x + "," + y);
+        }
+
+        if (x > 0 && x < 50 && y > 0 && y < 50) {
+            colorActual = color[0];
+
+        } else if (x > 50 && x < 100 && y > 0 && y < 50) {
+            colorActual = color[1];
+
+        } else if (x > 100 && x < 150 && y > 0 && y < 50) {
+            colorActual = color[2];
+            
+        }
+        
+
+        pantalla.onclick = cambioColor;
+
+
+
+        
+        
+
+        function habilitarDibujar(x ) {
+
+            puedoDibujar = true;
+        }
+
+        function deshabilitarDibujar() {
+
+            puedoDibujar = false;
+        }
+
+        pantalla.onmousedown = habilitarDibujar;
+
+        pantalla.onmouseup = deshabilitarDibujar;
+
+    </script>
+</body>
+</html>

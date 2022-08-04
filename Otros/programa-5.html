@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas width="600" height="400" ></canvas>
+
+    <script>
+        let pantalla = document.querySelector("canvas");
+        let pincel = pantalla.getContext("2d");
+        pincel.fillStyle = "lightgrey";
+        pincel.fillRect(0,0,600,400);
+
+        function diseñoCircunferencia(x,y,radio) {
+            pincel.fillStyle = "green";
+            pincel.beginPath();
+            pincel.arc(x,y,radio,0,2*Math.PI);
+            pincel.fill();
+        }
+
+        function cleanScreen() {
+            pincel.clearRect(0,0,600,400);
+        }
+
+        let x = 0;
+        let sentido = 1;
+
+        //Acá empieza el movimiento----
+        function actualizarPantalla() {
+            cleanScreen();
+            if (x > 600) {
+                sentido = -1;
+            } else if (x < 0) {
+                sentido = 1;
+            }
+
+            diseñoCircunferencia(x,20,10);
+            x = x + sentido;
+        }
+
+        //Controlador de movimiento por milisegundos---
+        setInterval(actualizarPantalla,1);
+    </script>
+</body>
+</html>

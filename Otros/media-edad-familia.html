@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular la media de una familia</title>
+</head>
+<body>
+    <h1>Calcular la media de una familia</h1>
+    <script>
+         
+        function saltarLinea() {
+            document.write("<br>");
+        }
+
+        function imprimir(frase) {
+            document.write(frase);
+            saltarLinea();
+        }
+
+        let numeroMiembros = parseInt(prompt("Ingrese la cantidad de miembros de su familia"));
+        let contador = 1;
+        let totalEdad = 0
+
+        while (contador <= numeroMiembros) {
+            let edad = parseInt(prompt("Ingrese la edad del familiar"))
+            totalEdad = totalEdad + edad;
+            contador++;
+        }
+        
+        let mediaEdad = totalEdad / numeroMiembros;
+
+        imprimir("La suma total de edades del grupo familiar es de: " + totalEdad);
+
+        imprimir("La media de edad de la familia es: " + mediaEdad);        
+        
+        
+        // let edadPadre = 42;
+        // let edadMadre = 38;
+        // let edadHijo = 15;
+        // let edadHija = 12;
+
+        // let totalEdad = edadPadre + edadMadre + edadHijo + edadHija;
+        
+
+        // let mediaEdad = totalEdad / 4;
+
+        // imprimir("La media de las edades es " + mediaEdad)
+
+    </script>
+</body>
+</html>
