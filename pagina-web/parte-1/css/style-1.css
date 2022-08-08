@@ -1,0 +1,46 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+.title-principal {
+    padding-left: 30px;
+}
+#img-bar {
+    width: 100%;
+    height: 400px;
+}
+.principal {
+    background: lightcoral;
+    padding: 20px;
+}
+p{
+    text-align: center;
+}
+em strong{
+    color: darkred;
+}
+.title-center {
+    text-align: center;
+}
+#p1 {
+    font-size: 20px;
+}
+.diferenciales {
+    background: lightblue;
+    border-radius: 5px;
+    padding: 30px;
+}
+.items {
+    font-style: italic;
+    font-size: larger;
+}
+ul {
+    display: inline-block;
+    vertical-align: top;
+    width: 20%;
+    margin-right: 15%;
+}
+#img-2 {
+    width: 50%;
+}
+
